@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authenticator</title>
+    <link href="style-proj.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="signUp-page" id="signupPage">
+      <div class="left-side">
+        <h2>WELCOME BACK!</h2>
+        <p>
+          To keep connected with us please login with your personal information
+        </p>
+        <div class="center_div">
+          <button class="loginAside" id="loginButton" onclick="showLogin()">
+            LOG IN
+          </button>
+        </div>
+      </div>
+      <div class="right-side">
+        <h2>CREATE ACCOUNT</h2>
+        <p>Please enter your details for registration</p>
+        <form>
+          <input
+            type="text"
+            class="formItem name"
+            id="name"
+            placeholder="Please enter your name"
+            size="50"
+            required
+          />
+
+          <input
+            type="text"
+            class="formItem username"
+            name="name"
+            placeholder="Please enter your user name"
+            size="50"
+            required
+          />
+
+          <input
+            type="email"
+            class="formItem mail"
+            name="user_email"
+            placeholder="Please enter your email"
+            size="50"
+            required
+          />
+
+          <input
+            type="text"
+            class="formItem password"
+            name="user_name"
+            placeholder="Please enter your password"
+            size="50"
+            required
+          />
+        </form>
+        <button type="submit" class="signupMain" onclick="upload_details()">
+          SIGN UP
+        </button>
+      </div>
+    </div>
+
+    <!-- next page -->
+
+    <div class="login-page" id="loginPage">
+      <div
+        id="something"
+        style="
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: none;
+          backdrop-filter: blur(19px);
+        "
+      >
+        <div
+          style="
+            width: 35rem;
+            padding: 1.5rem;
+            height: 20rem;
+            border-radius: 1rem;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            border: 0.5px solid gray;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          "
+        >
+          <h1
+            style="font-weight: 500; text-align: center; padding-block: 1.5rem"
+          >
+            SignUp Succesfully
+          </h1>
+          <div
+            style="
+              display: flex;
+              width: 100%;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <button
+              id="showButton"
+              style="
+                width: 95%;
+                font-size: 1.5rem;
+                padding: 1rem;
+                border-radius: 1rem;
+                border: none;
+                outline: none;
+                background-color: rgb(9, 166, 116);
+                color: white;
+                font-weight: bold;
+              "
+              onclick="showLogin()"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="left-side">
+        <h2>LOGIN ACCOUNT</h2>
+        <p>Please enter your details</p>
+        <!-- <div class="login-form"> -->
+        <input
+          type="text"
+          class="formItem email"
+          placeholder="Please enter your username"
+          size="50"
+          id="getEmail"
+        />
+        <input
+          type="password"
+          class="formItem password"
+          placeholder="Please enter your password"
+          id="getPassword"
+          size="50"
+        />
+        <button id="loginThing" class="loginMain" onclick="get_details()">
+          LOGIN
+        </button>
+        <!-- </div> -->
+      </div>
+      <div class="right-side">
+        <h2>JOIN US</h2>
+        <p>To connect with us please sign up with your personal information</p>
+        <button class="signupAside" id="signupButton" onclick="showSignUp()">
+          SIGN UP
+        </button>
+      </div>
+    </div>
+
+    <!-- <div class="p-container">
+      <button type="submit" class="p-btn" onclick="openPopup()">Submit</button>
+      <div class="p-popup" id="p-popup">
+        <img src="404-tick.png" />
+        <h2>Thank You !</h2>
+        <p>Your details has been Succesfully submitted. Thanks!</p>
+        <button type="button" onclick="closePopup()">OK</button>
+      </div>
+    </div> -->
+    <div
+      id="something2"
+      style="
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        backdrop-filter: blur(19px);
+      "
+    >
+      <div
+        style="
+          width: 35rem;
+          padding: 1.5rem;
+          height: 20rem;
+          border-radius: 1rem;
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          border: 0.5px solid gray;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          color: black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <h1 style="font-weight: 500; text-align: center; padding-block: 1.5rem">
+          Loda Lele
+        </h1>
+        <div
+          style="
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <button
+            id="showButton"
+            style="
+              width: 95%;
+              font-size: 1.5rem;
+              padding: 1rem;
+              border-radius: 1rem;
+              border: none;
+              outline: none;
+              background-color: rgb(9, 166, 116);
+              color: white;
+              font-weight: bold;
+            "
+            onclick="somethingFunc()"
+          >
+            ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="script.js" defer></script>
+  <script>
+    const something2 = document.getElementById("something2");
+
+    document.getElementById("loginThing").addEventListener("click", () => {
+      something2.style.display = "block";
+    });
+
+    function somethingFunc() {
+      location.reload();
+    }
+  </script>
+</html>
