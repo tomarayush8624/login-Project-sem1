@@ -20,16 +20,6 @@ function showLogin() {
   loginPage.style.left = "0";
 }
 
-//Get Data
-let url =
-  // "https://api.sheety.co/2b6613d7dad6008ce1e5dc7864019ab7/details/sheet1";
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      // Do something with the data
-      console.log(json.sheet1);
-    });
-
 //Include data to google sheets
 function upload_details() {
   let name1 = document.querySelector(".name").value;
@@ -48,88 +38,39 @@ function upload_details() {
   };
   console.log(body);
   let url =
-    // "https://api.sheety.co/2b6613d7dad6008ce1e5dc7864019ab7/details/sheet1";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        // Do something with object
-        console.log(json.sheet1);
-      });
+    "https://api.sheety.co/2b6613d7dad6008ce1e5dc7864019ab7/details/sheet1";
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      // Do something with object
+      console.log(json.sheet1);
+    });
   popupDiv.style.display = "block";
 }
 
 // Match Details from google sheets
 function get_details() {
   let url =
-    // "https://api.sheety.co/2b6613d7dad6008ce1e5dc7864019ab7/details/sheet1";
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => {
-        const getEmail = document.getElementById("getEmail");
-        const getPassword = document.getElementById("getPassword");
-        for (let i = 0; i < json.sheet1.length; i++) {
-          if (
-            getEmail.value == json.sheet1[i].email &&
-            getPassword.value == json.sheet1[i].password
-          )
-            // console.log("Login successfully");
-            // popup.classList.add("p-open-popup");
-            window.open("loginsuccess.html");
-        }
-      });
+    "https://api.sheety.co/2b6613d7dad6008ce1e5dc7864019ab7/details/sheet1";
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => {
+      const getEmail = document.getElementById("getEmail");
+      const getPassword = document.getElementById("getPassword");
+      for (let i = 0; i < json.sheet1.length; i++) {
+        if (
+          getEmail.value == json.sheet1[i].email &&
+          getPassword.value == json.sheet1[i].password
+        )
+          // console.log("Login successfully");
+          // popup.classList.add("p-open-popup");
+          window.open("loginsuccess.html");
+      }
+    });
 }
-
-// Send Email
-
-// const axios = require("axios");
-
-// const mailjetApiKey = "a0cfac7d5de6650824159db6f69ff34f";
-// const mailjetApiSecret = "5461361dcfcfef8321113545fe69d4d9";
-
-// const mailjetConfig = {
-//   auth: {
-//     username: mailjetApiKey,
-//     password: mailjetApiSecret,
-//   },
-// };
-
-// const sendEmail = async () => {
-//   const emailData = {
-//     Messages: [
-//       {
-//         From: {
-//           Email: "zohydhiruxboa@bugfoo.com",
-//           Name: "Ayush",
-//         },
-//         To: [
-//           {
-//             Email: "ayushrajput1708@gmail.com",
-//             Name: "ayush123",
-//           },
-//         ],
-//         Subject: "Test email",
-//         HTMLPart: "<h3>Hello, this is a test email!</h3>",
-//       },
-//     ],
-//   };
-
-//   try {
-//     const response = await axios.post(
-//       "https://api.mailjet.com/v3.1/send",
-//       emailData,
-//       mailjetConfig
-//     );
-
-//     console.log(response.data);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// sendEmail();
