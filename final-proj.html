@@ -140,7 +140,7 @@
         <input
           type="text"
           class="formItem email"
-          placeholder="Please enter your username"
+          placeholder="Please enter your email"
           size="50"
           id="getEmail"
         />
@@ -205,8 +205,11 @@
           flex-direction: column;
         "
       >
-        <h1 style="font-weight: 500; text-align: center; padding-block: 1.5rem">
-          Loda Lele
+        <h1
+          id="login-page-popup"
+          style="font-weight: 500; text-align: center; padding-block: 1.5rem"
+        >
+          Authentication Completed
         </h1>
         <div
           style="
@@ -229,7 +232,7 @@
               color: white;
               font-weight: bold;
             "
-            onclick="somethingFunc()"
+            onclick="closeFunc()"
           >
             ok
           </button>
@@ -239,14 +242,14 @@
   </body>
   <script type="text/javascript" src="script.js" defer></script>
   <script>
-    const something2 = document.getElementById("something2");
+    // const something2 = document.getElementById("something2");
 
-    document.getElementById("loginThing").addEventListener("click", () => {
-      something2.style.display = "block";
-    });
+    // document.getElementById("loginThing").addEventListener("click", () => {
+    //   something2.style.display = "block";
+    // });
 
-    function somethingFunc() {
-      location.reload();
-    }
+    // function somethingFunc() {
+    //   location.reload();
+    // }
   </script>
 </html>

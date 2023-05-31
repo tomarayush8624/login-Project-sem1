@@ -4,6 +4,8 @@ const loginButton = document.getElementById("loginButton");
 const signupPage = document.getElementById("signupPage");
 const loginPage = document.getElementById("loginPage");
 const popupDiv = document.getElementById("something");
+const something2 = document.getElementById("something2");
+
 console.log("hi");
 
 document.getElementById("showButton").addEventListener("click", () => {
@@ -54,6 +56,10 @@ function upload_details() {
   popupDiv.style.display = "block";
 }
 
+function closeFunc() {
+  location.reload();
+}
+
 // Match Details from google sheets
 function get_details() {
   let url =
@@ -67,10 +73,16 @@ function get_details() {
         if (
           getEmail.value == json.sheet1[i].email &&
           getPassword.value == json.sheet1[i].password
-        )
-          // console.log("Login successfully");
-          // popup.classList.add("p-open-popup");
-          window.open("loginsuccess.html");
+        ) {
+          document.getElementById("login-page-popup").textContent =
+            "Authentication Complete";
+          something2.style.display = "block";
+          console.log("passed");
+        } else {
+          document.getElementById("login-page-popup").textContent =
+            "Login Failed";
+          something2.style.display = "block";
+        }
       }
     });
 }
